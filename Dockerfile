@@ -23,4 +23,4 @@ FROM node:alpine
 WORKDIR /usr/src/app
 COPY --from=backend /usr/src/app/dist .
 EXPOSE 3000
-CMD [ "node", "index.js" ]
+CMD [ "node", "dist/index.js" ]
