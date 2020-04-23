@@ -12,15 +12,12 @@
 #   See the License for the specific language governing permissions and
 #   limitations under the License.
 
-FROM node:alpine as backend
+FROM node:alpine
 WORKDIR /usr/src/app
 COPY package.json .
 RUN npm install
 COPY . .
 RUN npm run build
 
-FROM node:alpine
-WORKDIR /usr/src/app
-COPY --from=backend /usr/src/app .
 EXPOSE 3000
-CMD [ "node", "index.js" ]
+CMD [ "node", "dist/index.js" ]
