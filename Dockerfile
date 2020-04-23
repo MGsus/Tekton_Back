@@ -21,6 +21,6 @@ RUN npm run build
 
 FROM node:alpine
 WORKDIR /usr/src/app
-COPY --from=backend /usr/src/app/dist .
+COPY --from=backend /usr/src/app .
 EXPOSE 3000
 CMD [ "node", "index.js" ]
